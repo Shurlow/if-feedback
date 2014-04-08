@@ -1,5 +1,28 @@
-<h1>Hello</h1>
+<html>
+    
+    <head>
+    
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    </head>
+    
+    <body>
+    
+        <p class="huge">{{ head }}</p>
 
-test
+       	<input type="text" id="feedback">
+        <script src="addFeedback.js"></script>
 
-test
+        <ul>
+        	<li>{{item1}}</li>
+        	<li>{{item2}}</li>
+        	<li>{{item3}}</li>
+
+
+        </ul>
+
+    
+    </body>
+    </html>

@@ -1,0 +1,26 @@
+{
+  "name": "if-feedback",
+  "version": "0.0.0",
+  "description": "if-feedback ===========",
+  "main": "feedback.js",
+  "dependencies": {
+    "hjs": "~0.0.6",
+    "express": "~3.4.8",
+    "nodemon": "~1.0.17",
+    "level": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Shurlow/if-feedback.git"
+  },
+  "author": "Scott Hurlow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shurlow/if-feedback/issues"
+  },
+  "homepage": "https://github.com/Shurlow/if-feedback"
+}
