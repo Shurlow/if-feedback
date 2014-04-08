@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(req, res) {
-	res.render('index.hjs', feed)
+	res.render('index.hjs')
 })
 app.listen(3000)
 console.log('im on port 3000')

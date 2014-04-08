@@ -1,9 +1,12 @@
 $(function() {
 
   $('#feedback').on('keypress', function(e){
-  	if(e.keyCode === 13)
+  	if(e.keyCode === 13){
   		var input = $( this ).val()
-  			$.post('http://localhost:3000/', input)
+  		
+  		// should change to $.ajax instead...
+  		$.post('http://localhost:3000/', input)
+  	}
   })
 
 })
