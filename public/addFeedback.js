@@ -3,12 +3,7 @@ $(function() {
   $('#feedback').on('keypress', function(e){
   	if(e.keyCode === 13)
   		var input = $( this ).val()
-
-  		console.log(input)
+  			$.post('http://localhost:3000/', input)
   })
 
 })
-
-var submitFB = function(str) {
-	$.post()
-}
