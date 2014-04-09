@@ -10,7 +10,7 @@
     
     <body>
     
-        <p class="huge">Let us know how were doing:</p>
+        <p class="huge">Let us know how we're doing:</p>
 
        	<input type="text" id="feedback">
         <script src="addFeedback.js"></script>

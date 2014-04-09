@@ -13,16 +13,13 @@ app.get('/', function(req, res) {
 })
 
 app.post('/', function(req, res) {
-  console.log(req.headers)
-  console.log(req.body)
-  res.end('bitch plz')
+  feedbackDB.addToDB(req.body.key, req.body.value)
+  res.end('added input to DB')
 })
 
+
+feedbackDB.getDBKeys()
+
 app.listen(3000)
-console.log('im on port 3000')
+console.log('Im on port 3000')
 
-
-// feedbackDB.addToDB('Cat', 'Bigger Dog')
-// feedbackDB.addToDB('Fish', 'Shark')
-// feedbackDB.addToDB('Ant', 'Ladybug')
-// feedbackDB.viewDB() 

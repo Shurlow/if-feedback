@@ -6,7 +6,6 @@ var fbdb = exports;
 fbdb.addToDB = function(key, val) {
 	db.put(key, val, function (err) {
 		if (err) return console.log('Ooops!', err)
-		// console.log('added it to DB')
 	})
 }
 
@@ -18,11 +17,11 @@ fbdb.getFromDB = function(key) {
 
 }
 
-fbdb.viewDB = function() {
+fbdb.getDBKeys = function() {
 
 	db.createReadStream()
 		.on('data', function (data) {
-			console.log(data.key, '=', data.value)
+			console.log(data.key)
 		})
 		.on('error', function (err) {
 			console.log('Oh my!', err)

@@ -4,10 +4,13 @@ $(function() {
 
   	if(e.keyCode === 13) {
 
-  		var value = $( this ).val()
+  		var input = $( this ).val()
 
+      var time = Date.now()
+      
       var data = {
-        thingy: value
+        key: time,
+        value: input
       }
 
       $.ajax({
