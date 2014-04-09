@@ -1,5 +1,6 @@
 var level = require( 'level' )
 var db = level('./mydb')
+var concat = require('concat-stream')
 
 var fbdb = exports;
 
@@ -11,20 +12,18 @@ fbdb.addToDB = function(key, val) {
 
 fbdb.getFromDB = function(key) {
 	db.get(key, function (err, value) {
-		if (err) return console.log('Woah!', err)
+		if (err) return console.log('Woah!', err)	
 		console.log(value)
+
 	})
 
 }
 
-fbdb.getDBKeys = function() {
+fbdb.getDBVals = function(cb) {
 
-	db.createReadStream()
-		.on('data', function (data) {
-			console.log(data.key)
-		})
-		.on('error', function (err) {
-			console.log('Oh my!', err)
-		})
+	db.createReadStream().pipe(concat(function(bundle){
+			cb(bundle)
+	}))
+		
 }
 

@@ -16,10 +16,14 @@
         <script src="addFeedback.js"></script>
 
         <ul>
-        	<li>{{item1}}</li>
-        	<li>{{item2}}</li>
-        	<li>{{item3}}</li>
 
+            {{#array}}
+                <div>
+                    <h4>user #$%&* says:</h4>
+                    <li>{{value}}</li>
+                </div>
+                
+            {{/array}}
 
         </ul>
 

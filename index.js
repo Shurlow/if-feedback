@@ -8,17 +8,20 @@ app.use(express.json())
 app.use(express.static(__dirname + '/public'));
 
 
+
 app.get('/', function(req, res) {
-	res.render('index.hjs')
+	feedbackDB.getDBVals(function(bundle) {
+		console.log({array: bundle})
+		res.render('index.hjs', {array: bundle})
+	})
+	
+	
 })
 
 app.post('/', function(req, res) {
   feedbackDB.addToDB(req.body.key, req.body.value)
   res.end('added input to DB')
 })
-
-
-feedbackDB.getDBKeys()
 
 app.listen(3000)
 console.log('Im on port 3000')
