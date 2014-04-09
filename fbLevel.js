@@ -21,8 +21,9 @@ fbdb.getFromDB = function(key) {
 
 fbdb.getDBVals = function(cb) {
 
-	db.createReadStream().pipe(concat(function(bundle){
-			cb(bundle)
+	db.createReadStream({ reverse: true }).pipe(concat(function(bundle){
+		cb(bundle)
+	
 	}))
 		
 }

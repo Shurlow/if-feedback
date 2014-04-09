@@ -15,12 +15,12 @@
        	<input type="text" id="feedback">
         <script src="addFeedback.js"></script>
 
-        <ul>
+        <ul class="list">
 
             {{#array}}
-                <div>
-                    <h4>user #$%&* says:</h4>
-                    <li>{{value}}</li>
+                <div class="response">
+                    <h2 class="usr">___ says:</h2>
+                    <p class="input">{{value}}</p>
                 </div>
                 
             {{/array}}

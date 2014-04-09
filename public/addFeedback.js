@@ -22,6 +22,7 @@ $(function() {
       .done(function(res) {
         console.log(res)
       })
+      $(this).hide()
 
   	}
   })
