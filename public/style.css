@@ -17,35 +17,53 @@ body {
 
 /* TYPE */
 
+.main {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin-top: 8rem;
+  font-size: 2rem;
+  /*margin-left: 25rem;*/
+  font-weight: 675;
+  float: right;
+}
+
 p.huge {
-  font-size: 4rem;
+  font-size: 5rem;
   margin: 0;
   line-height: 4rem;
   font-weight: 700;
   margin-bottom: 4rem;
-}
-
-.list {
-  list-style-type: none;
+  /*float: right;*/
 }
 
 .response {
   margin: 0;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: 2rem;
+  /*display: inline-block;*/
+  font-size: 4rem;
 }
 
-.usr {
-  margin: 0;
-  font-size: 3.5rem;
+.side {
+  height: 50rem;
+  width: 25rem;
   display: inline-block;
 }
 
-.input {
+#sadie {
+  width: 100%;
+  z-index: -1;
+}
+
+/*#feedbackBlock {
   margin: 0;
-  margin-left: 2rem;
-  display: inline-block;
-  font-size: 2.8rem;
+
+}*/
+
+#feedbackInput {
+  width: 55rem;
+  background: black;
+  backgroundColor: black;
 }
 
 
@@ -54,11 +72,10 @@ p.huge {
 input[type=text] {
   font-size: 4rem;
   font-family: inherit;
-  font-weight: 700;
+  font-weight: 675;
   line-height: 1em;
-  padding: 1rem;
   margin: 0;
-  background: grey;
+  /*background: blue;*/
   color: white;
   border: none;
 }

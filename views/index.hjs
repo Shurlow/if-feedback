@@ -5,28 +5,43 @@
         <title>{{ title }}</title>
         <link rel="stylesheet" href="style.css">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     
     </head>
     
     <body>
     
-        <p class="huge">Let us know how we're doing:</p>
+         <div class='side'>
+        
+        <img src="http://invisiblefriend.com/sadie.png" id="sadie">
+        
+        </div>
+       
+        <div class="main">
+            
+            <p class="huge">Let us know how we're doing:
+            </p>
 
-       	<input type="text" id="feedback">
-        <script src="addFeedback.js"></script>
+       	    <input type="text" id="feedbackInput">
 
-        <ul class="list">
 
+            <div id="feedbackBlock">
             {{#array}}
-                <div class="response">
-                    <h2 class="usr">___ says:</h2>
-                    <p class="input">{{value}}</p>
-                </div>
+
+                 <p class="response">{{value}}</p>
                 
             {{/array}}
+            </div>
 
-        </ul>
+
+        </div>
+
+
+       
+        
 
     
+    <script src="addFeedback.js"></script>
+
     </body>
     </html>

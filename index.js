@@ -11,7 +11,6 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
 	feedbackDB.getDBVals(function(bundle) {
-		console.log(bundle)
 		res.render('index.hjs', {array: bundle})
 	})
 	
@@ -24,6 +23,5 @@ app.post('/', function(req, res) {
 })
 
 
-app.listen(3000)
-console.log('Im on port 3000')
-
+app.listen(process.env.PORT || 3000)
+// console.log('Im on port 3000')
