@@ -13,69 +13,89 @@ html {
 
 body {
   padding: 0.5rem;
+  background: black;
 }
 
 /* TYPE */
 
 .main {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 0.8rem;
   width: 100%;
-  height: 100%;
-  max-width: 1000px;
-  margin-top: 8rem;
-  font-size: 2rem;
-  /*margin-left: 25rem;*/
-  font-weight: 675;
-  float: right;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
-p.huge {
-  font-size: 5rem;
+.huge {
   margin: 0;
-  line-height: 4rem;
-  font-weight: 700;
-  margin-bottom: 4rem;
-  /*float: right;*/
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
 }
 
 .response {
   margin: 0;
-  margin-top: 2rem;
-  /*display: inline-block;*/
-  font-size: 4rem;
+  margin-bottom: 2rem;
+
 }
-
-.side {
-  height: 50rem;
-  width: 25rem;
-  display: inline-block;
-}
-
-#sadie {
-  width: 100%;
-  z-index: -1;
-}
-
-/*#feedbackBlock {
-  margin: 0;
-
-}*/
 
 #feedbackInput {
-  width: 55rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  width: 80%;
   background: black;
-  backgroundColor: black;
+  border-bottom: solid;
+
+}
+
+#sadiePNG {
+  width: 100%;
+}
+
+@media screen and (max-width: 800px){
+  #sadie {
+    display: block;
+    margin: 0px auto;
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .main {
+    width: 800px;
+    margin-top: 4rem;
+    font-size: 5rem;
+    z-index: 
+  }
+  .huge{
+    margin: 0;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  .response {
+    font-size: 4rem;
+  }
+
+  #feedbackInput {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  #sadie {
+    position: fixed;
+    width: 18rem;
+  }
 }
 
 
 /* FORMS */
 
 input[type=text] {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-family: inherit;
-  font-weight: 675;
-  line-height: 1em;
+  font-weight: 700;
   margin: 0;
-  /*background: blue;*/
   color: white;
   border: none;
 }

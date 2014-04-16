@@ -23,8 +23,15 @@ fbdb.getDBVals = function(cb) {
 
 	db.createReadStream({ reverse: true }).pipe(concat(function(bundle){
 		cb(bundle)
-	
 	}))
 		
+}
+
+fbdb.flushDB = function(cb){
+	db.createReadStream()
+		.on('data', function(data){
+			db.del(data.key)
+			cb(data)
+		})
 }
 

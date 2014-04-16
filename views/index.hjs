@@ -2,20 +2,17 @@
     
     <head>
     
-        <title>{{ title }}</title>
+        <title>IF Feedback</title>
         <link rel="stylesheet" href="style.css">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     
     </head>
     
     <body>
-    
-         <div class='side'>
         
-        <img src="http://invisiblefriend.com/sadie.png" id="sadie">
-        
-        </div>
+        <a href="http://beta.invisiblefriend.com" id="sadie">
+            <img src="http://invisiblefriend.com/sadie.png" id="sadiePNG">
+        </a> 
        
         <div class="main">
             

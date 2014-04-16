@@ -1,5 +1,7 @@
 $(function() {
 
+  $('#feedbackInput').focus()
+
   $('#feedbackInput').on('keypress', function(e){
 
   	if(e.keyCode === 13) {
@@ -21,22 +23,13 @@ $(function() {
       })
       .done(function(res) {
         
-        // Adding new submition to the current list
+        // Adding new submition to the current visible list
         $('#feedbackBlock').prepend(inputHTML)
 
       })
-      
-      $(this)
-      .animate(
-        {backgroundColor: 'white'},
-        {duration: 120,
-          easing:"easeInExpo",
-          queue: false})
-      .animate({height: "0%"},
-        {duration: 100,
-          easing: "easeInOutQuart",
-          queue: false})
 
+      $(this).val("")
+      
   	}
   })
 
