@@ -1,13 +1,16 @@
 $(function() {
 
+
   $('#feedbackInput').focus()
 
+
+  // add input when user presses enter key
   $('#feedbackInput').on('keypress', function(e){
 
   	if(e.keyCode === 13) {
 
   		var input = $( this ).val()
-      var inputHTML = "<p class='response'>" + input + "</p>"
+      var inputHTML = "<div class='feedbackBlock'><p class='response'>" + input + "</p></div>"
       var time = Date.now()
 
       var data = {
@@ -23,8 +26,9 @@ $(function() {
       })
       .done(function(res) {
         
-        // Adding new submition to the current visible list
-        $('#feedbackBlock').prepend(inputHTML)
+        // Adding new submition to the current visible list     
+        $('#AllFeedback').prepend(inputHTML)
+
 
       })
 
@@ -33,6 +37,36 @@ $(function() {
   	}
   })
 
+  // opens admin reply field
+  $('.feedbackBlock').click(function(){
+    var myDat = $(this).data('key')
+    $('.adminInput', this).toggleClass('open')
+    $('.adminInput', this).focus()
+  })
+
+  // add admin feedback to database
+  $('.adminInput').on('keypress', function(e){
+
+    if(e.keyCode === 13) {
+      var adminIN = $( this ).val()
+
+      $.ajax({
+        url: '/admin',
+        method: 'POST',
+        contentType: 'text/plain',
+        data: adminIN,
+      })
+      .done(function(res) {
+
+
+      })
+    }
+
+  })
+
 })
+
+
+
 
 

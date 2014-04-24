@@ -1,6 +1,12 @@
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html {
@@ -35,22 +41,22 @@ body {
 
 .response {
   margin: 0;
-  margin-bottom: 2rem;
+}
+
+#AllFeedback {
 
 }
 
-#feedbackInput {
-  margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
-  width: 80%;
-  background: black;
-  border-bottom: solid;
-
+.feedbackBlock {
+  line-height: 4rem;
+  margin-bottom: 4rem;
+  color: white;
 }
 
 #sadiePNG {
   width: 100%;
 }
+
 
 @media screen and (max-width: 800px){
   #sadie {
@@ -91,6 +97,29 @@ body {
 
 /* FORMS */
 
+.adminInput {
+  margin: 0;
+  font-size: 1.6rem;
+  background: black;
+  border-bottom: solid;
+  float: right;
+  display: none;
+}
+
+.adminInput.open {
+  display: block;
+  border-bottom: solid white;
+  color: #ed1e58;
+}
+
+#feedbackInput {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  width: 80%;
+  background: black;
+  border-bottom: solid;
+}
+
 input[type=text] {
   font-size: 2.5rem;
   font-family: inherit;
@@ -103,4 +132,6 @@ input[type=text] {
 input[type=text]:focus {
   outline: none;
 }
+
+
 

@@ -10,7 +10,7 @@ fbdb.addToDB = function(key, val) {
 	})
 }
 
-fbdb.getFromDB = function(key) {
+fbdb.getVal = function(key) {
 	db.get(key, function (err, value) {
 		if (err) return console.log('Woah!', err)	
 		console.log(value)
@@ -19,9 +19,23 @@ fbdb.getFromDB = function(key) {
 
 }
 
-fbdb.getDBVals = function(cb) {
+// fbdb.getKey = function(val, cb){
+// 	db.createReadStream({ reverse: true }).on('data', function(data){
+// 		if(data.value === val){
+// 			db.put(data.key, data.value, function(err){
+// 				if (err) return console.log('Uh oh!', err)
+// 			})
+// 			console.log(data.key, '=', data.value)
+// 			// cb(data)
+// 		}
+// 	})
 
-	db.createReadStream({ reverse: true }).pipe(concat(function(bundle){
+// }
+
+fbdb.getAll = function(cb) {
+
+	db.createReadStream({ reverse: true })
+	.pipe(concat(function(bundle){
 		cb(bundle)
 	}))
 		

@@ -26,9 +26,10 @@
             
                 {{#array}}
             
-                <div class="feedbackBlock">
+                <div class="feedbackBlock" data-key={{key}}>
             
                  <p class="response">{{value}}</p>
+                 <input class="adminInput" type="text" value="type here IF Admin"/>
 
                 </div>  
             

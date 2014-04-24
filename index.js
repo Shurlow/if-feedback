@@ -6,6 +6,7 @@ var app = express()
 app.set('view engine', 'hjs')
 app.use( express.logger('dev') )
 app.use(express.json())
+app.use(express.bodyParser())
 app.use(express.static(__dirname + '/public'))
 
 
@@ -17,8 +18,9 @@ var auth = express.basicAuth(function(user, pass) {
 
 // main page render
 app.get('/', function(req, res) {
-	fbLevel.getDBVals(function(bundle) {
-		res.render('index.hjs', {array: bundle})
+	fbLevel.getAll(function(bundle) {
+		// console.log(bundle)
+		res.render('adminIndex.hjs', {array: bundle})
 	})
 	
 })
@@ -27,7 +29,7 @@ app.get('/', function(req, res) {
 // route to flush database. Requires auth.
 app.get('/flush', auth, function(req, res) {
 	fbLevel.flushDB(function(res){
-			console.log(res)
+			console.log(req.body)
 		})
 		res.send('Database was flushed...')
 	})
@@ -35,8 +37,10 @@ app.get('/flush', auth, function(req, res) {
 
 // admin route to main page. Requires auth.
 app.get('/admin', auth, function(req, res){
-	res.send("did somethin..")
+	fbLevel.getKey('fuck', function(res){
+		// console.log(res)
 	})
+})
 
 
 // admin route to download feedback db as csv
@@ -47,7 +51,7 @@ app.get('/down', auth, function(req, res){
 	var sheetBody = ""
 	var arr = []
 	
-	fbLevel.getDBVals(function(bundle) {
+	fbLevel.getAll(function(bundle) {
 
 		bundle.forEach(function(item){
 			
@@ -67,5 +71,11 @@ app.post('/', function(req, res) {
   	res.end('added input to DB')
 })
 
+// admin posts new comment
+app.post('/admin', function(req, res) {
+	console.log(req)
+	// fbLevel.addToDB(req.body.key, req.body.value)
+ //  	res.end('added input to DB')
+})
 
 app.listen(process.env.PORT || 3000)
