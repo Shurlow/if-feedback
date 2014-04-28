@@ -28,7 +28,8 @@
             
                 <div class="feedbackBlock">
             
-                 <p class="response">{{value}}</p>
+                  <p class="response">{{value}}</p>
+                  <p class="adminFeedback">a lil bit admin responce goes here...</p>
 
                 </div>  
             

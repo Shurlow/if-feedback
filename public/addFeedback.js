@@ -39,22 +39,26 @@ $(function() {
 
   // opens admin reply field
   $('.feedbackBlock').click(function(){
-    var myDat = $(this).data('key')
+    
+    KEY = $(this).data('key')
+    
     $('.adminInput', this).toggleClass('open')
     $('.adminInput', this).focus()
   })
+  
 
   // add admin feedback to database
   $('.adminInput').on('keypress', function(e){
 
     if(e.keyCode === 13) {
-      var adminIN = $( this ).val()
+      var val = $( this ).val()
+      KEY = KEY.toString()
+      IN = {'key':KEY, 'text':val}
 
       $.ajax({
         url: '/admin',
         method: 'POST',
-        contentType: 'text/plain',
-        data: adminIN,
+        data: IN,
       })
       .done(function(res) {
 
@@ -65,6 +69,8 @@ $(function() {
   })
 
 })
+
+ 
 
 
 

@@ -1,7 +1,8 @@
 var express = require( 'express' )
 var fbLevel = require( './fbLevel' )
-var cp = require( 'child_process' )
+var cp 			= require( 'child_process' )
 
+var port = process.env.PORT || 3000
 var app = express()
 app.set('view engine', 'hjs')
 app.use( express.logger('dev') )
@@ -18,9 +19,10 @@ var auth = express.basicAuth(function(user, pass) {
 
 // main page render
 app.get('/', function(req, res) {
-	fbLevel.getAll(function(bundle) {
-		// console.log(bundle)
-		res.render('adminIndex.hjs', {array: bundle})
+	fbLevel.getValues(function(bundle) {
+		res.send(bundle)
+		// if (err){ console.log('Not good... ', err)}
+		// res.render('adminIndex.hjs', {array: bundle})
 	})
 	
 })
@@ -29,7 +31,7 @@ app.get('/', function(req, res) {
 // route to flush database. Requires auth.
 app.get('/flush', auth, function(req, res) {
 	fbLevel.flushDB(function(res){
-			console.log(req.body)
+
 		})
 		res.send('Database was flushed...')
 	})
@@ -37,9 +39,10 @@ app.get('/flush', auth, function(req, res) {
 
 // admin route to main page. Requires auth.
 app.get('/admin', auth, function(req, res){
-	fbLevel.getKey('fuck', function(res){
-		// console.log(res)
-	})
+	console.log(req.body)
+
+	// fbLevel.getKey('hey', function(res){
+	// })
 })
 
 
@@ -73,9 +76,13 @@ app.post('/', function(req, res) {
 
 // admin posts new comment
 app.post('/admin', function(req, res) {
-	console.log(req)
+	console.log("Looking up key:" + req.body.key)
+	fbLevel.addToDB(req.body.key, req.body.value)
+	fbLevel.getAll(function(bundle){
+		console.log(bundle)
+	})
 	// fbLevel.addToDB(req.body.key, req.body.value)
  //  	res.end('added input to DB')
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(port)
