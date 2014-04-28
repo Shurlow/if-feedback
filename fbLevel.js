@@ -11,7 +11,7 @@ var dbData = {
 }
 
 fbdb.addToDB = function(key, val) {
-	db.put('theKey', dbData, function (err) {
+	db.put(key, dbData, function (err) {
 		if (err) return console.log('Ooops!', err)
 	})
 }
