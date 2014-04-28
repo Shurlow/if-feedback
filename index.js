@@ -19,9 +19,9 @@ var auth = express.basicAuth(function(user, pass) {
 
 // main page render
 app.get('/', function(req, res) {
-	fbLevel.getValues(function(bundle) {
+	fbLevel.getAll(function(bundle) {
 		res.send(bundle)
-		// if (err){ console.log('Not good... ', err)}
+		
 		// res.render('adminIndex.hjs', {array: bundle})
 	})
 	

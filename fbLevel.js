@@ -24,6 +24,24 @@ fbdb.getVal = function(key, cb) {
 	})
 }
 
+fbdb.getAll = function(cb){
+
+	db.createReadStream()
+  .on('data', function (data) {
+    console.log(data.key, '=', data.value)
+  })
+  .on('error', function (err) {
+    console.log('Oh my!', err)
+  })
+  .on('close', function () {
+    console.log('Stream closed')
+  })
+  .on('end', function () {
+    console.log('Stream closed')
+  })
+
+}
+
 // fbdb.getKey = function(val, cb){
 // 	db.createReadStream({ reverse: true }).on('data', function(data){
 // 		if(data.value === val){
@@ -52,23 +70,7 @@ fbdb.getVal = function(key, cb) {
 		
 // }
 
-fbdb.getValues = function(cb){
 
-	db.createReadStream()
-  .on('data', function (data) {
-    console.log(data.key, '=', data.value)
-  })
-  .on('error', function (err) {
-    console.log('Oh my!', err)
-  })
-  .on('close', function () {
-    console.log('Stream closed')
-  })
-  .on('end', function () {
-    console.log('Stream closed')
-  })
-
-}
 
 
 
